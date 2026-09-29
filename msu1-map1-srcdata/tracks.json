@@ -1,0 +1,429 @@
+{
+    "$schema": "https://raw.githubusercontent.com/qwertymodo/msupcmplusplus/master/configs/schema#",
+    "game": "Star Fox EX MSU-1 - Star Fox Add-on Pack",
+    "normalization": -18,
+    "output_prefix": "sfes",
+    "verbosity": 3,
+    "tracks": [
+        {
+            "track_number": 48,
+            "file": "level1_1.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 11
+                }
+            ]
+        },
+        {
+            "track_number": 49,
+            "file": "level1_2.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 86337
+                }
+            ]
+        },
+        {
+            "track_number": 50,
+            "file": "level1_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 0
+                }
+            ]
+        },
+        {
+            "track_number": 51,
+            "file": "level1_4.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 88151
+                }
+            ]
+        },
+        {
+            "track_number": 52,
+            "file": "level1_6.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 399104
+                }
+            ]
+        },
+        {
+            "track_number": 53,
+            "file": "level2_2.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 77731
+                }
+            ]
+        },
+        {
+            "track_number": 54,
+            "file": "level2_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 468709
+                }
+            ]
+        },
+        {
+            "track_number": 55,
+            "file": "level2_4.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 142668
+                }
+            ]
+        },
+        {
+            "track_number": 56,
+            "file": "level2_6.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 331505
+                }
+            ]
+        },
+        {
+            "track_number": 57,
+            "file": "level3_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+					"loop": 0
+                }
+            ]
+        },
+        {
+            "track_number": 58,
+            "file": "level3_5.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 0
+                }
+            ]
+        },
+        {
+            "track_number": 59,
+            "file": "boss1_1.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 1239618
+                }
+            ]
+        },
+        {
+            "track_number": 60,
+            "file": "boss1_2.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 284820
+                }
+            ]
+        },
+        {
+            "track_number": 61,
+            "file": "boss1_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 80669
+                }
+            ]
+        },
+        {
+            "track_number": 62,
+            "file": "boss1_4.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 486441
+                }
+            ]
+        },
+        {
+            "track_number": 63,
+            "file": "boss2_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 522672
+                }
+            ]
+        },
+        {
+            "track_number": 64,
+            "file": "boss3_3.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 563668
+                }
+            ]
+        },
+        {
+            "track_number": 65,
+            "file": "boss3_5.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 4003
+                }
+            ]
+        },
+        {
+            "track_number": 66,
+            "file": "boss1_5a.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 520328
+                }
+            ]
+        },
+        {
+            "track_number": 67,
+            "file": "boss1_5b.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 1520932
+                }
+            ]
+        },
+        {
+            "track_number": 68,
+            "file": "boss1_5c.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 297158
+                }
+            ]
+        },
+        {
+            "track_number": 69,
+            "file": "bossandross.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 1087476
+                }
+            ]
+        },
+        {
+            "track_number": 70,
+            "file": "bossootd.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 644834
+                }
+            ]
+        },
+        {
+            "track_number": 71,
+            "file": "levelblackhole.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 3561
+                }
+            ]
+        },
+        {
+            "track_number": 72,
+            "file": "levelootd.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 468947
+                }
+            ]
+        },
+        {
+            "track_number": 73,
+            "file": "enteringdangerousterritory.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 691760
+                }
+            ]
+        },
+        {
+            "track_number": 74,
+            "file": "creditsmap1.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 16608967
+                }
+            ]
+        },
+        {
+            "track_number": 75,
+            "file": "secretactivated.flac",
+            "use_option": 2,
+            "options": [
+                {
+                    "option": 1,
+                    "trim_start": 0
+                },
+                {
+                    "option": 2,
+                    "loop": 0
+                }
+            ]
+        }
+    ]
+}

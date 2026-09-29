@@ -1,0 +1,19 @@
+	global	oopspal,oopspic,oopschr
+	global	bgmccr
+	global	bgdemoccr
+	global	bgdemopcr
+	global	bgcpccr
+	global	bgmintro
+	global	bgmintrolen
+	global	boss_fortuna
+	global	boss_fortunalen
+	global	boss_macbeth
+	global	boss_macbethlen
+	global	boss_asteroid
+	global	boss_asteroidlen
+	global	sector_y
+	global	sector_ylen
+	global	ops
+	global	opslen
+	global	bgmpcr
+

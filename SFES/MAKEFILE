@@ -1,0 +1,330 @@
+########################
+# Star Fox EX Makefile #
+########################
+
+# Assembler
+ASM=ARGSFXX
+# Setup heap for SASM and export symbols for ARGSFX
+ASMFLAGS=-m30 -efilelist=0 -xequates.txt -z
+
+# Linker
+LINK=ARGLINK
+LOPTS=-b30 -h1024 -t7d -z
+
+# ROM Extender
+EXTEND=EXTEND
+# Extended size in Mbits, byte to pad with
+# For GSU-1/GSU-2
+EXTOPS= 16 ff
+# For GSU-3
+#EXTOPS= 32 ff
+
+# Checksum Fixer
+CHECK=SFCHECK
+COPTS=-s -f
+
+# FXGFX Interleaver
+MERGE=MERGE
+MOPTS= /cgx
+
+# Graphics Cruncher
+CRU=CRU
+
+# Font Converter
+FONT=FON
+
+# Argonaut .MAP File Decoder
+MAPDEC=MAPDEC
+
+# ALLCOLS palette stripper
+MC=MAKECOL
+
+#!! If you add/remove a cgx/scr in these two lists, make sure to add/remove the corresponding file.
+
+# Crunched tilesets
+CGXFILES= DATA\1-3-B.ccr DATA\ALPHA.ccr DATA\CONT-2.ccr DATA\F-1.ccr DATA\MAP-G.ccr DATA\SPACE.ccr DATA\city.ccr DATA\rb.ccr DATA\vorice.ccr \
+DATA\1-4.ccr DATA\AND.ccr DATA\CONT.ccr DATA\F-OBJ.ccr DATA\MAP2.ccr DATA\ST-P.ccr DATA\cp.ccr DATA\sun.ccr DATA\yama.ccr \
+DATA\2-2.ccr DATA\ASTEROID.ccr DATA\CORN.ccr DATA\FOX-G.ccr DATA\OBJ-1-G.ccr DATA\ST-POLD.ccr DATA\desert.ccr DATA\tbosmenu.ccr \
+DATA\2-3.ccr DATA\B-HOLE.ccr DATA\CP-G.ccr DATA\FOX.ccr DATA\OBJ-1.ccr DATA\STARS.ccr DATA\finals.ccr DATA\ti-3-us.ccr \
+DATA\2-3B.ccr DATA\B-M.ccr DATA\DEMO.ccr DATA\FS-BG3.ccr DATA\OBJ-2.ccr DATA\T-SP.ccr DATA\fortn.ccr \
+DATA\2-4.ccr DATA\B.ccr DATA\DOG.ccr DATA\FXDES.ccr DATA\OBJ-3.ccr DATA\T-ST.ccr DATA\fortunan.ccr DATA\vhwymenu.ccr \
+DATA\3-2.ccr DATA\BACK1.ccr DATA\E-TEST.ccr DATA\HOLE-A.ccr DATA\RAIL.ccr DATA\TI-3.ccr DATA\gektun.ccr DATA\vhwyp.ccr \
+DATA\3-3.ccr DATA\C-M.ccr DATA\E-TEST2.ccr DATA\LSB.ccr DATA\SC.ccr DATA\TI.ccr DATA\macbeth.ccr DATA\vorclo.ccr \
+DATA\3-4.ccr DATA\CONT-2-G.ccr DATA\E.ccr DATA\M.ccr DATA\SGSX.ccr DATA\VENOMA.ccr DATA\map.ccr DATA\vordes.ccr DATA\MAR.ccr
+
+# Crunched tilemaps
+SCRFILES= DATA\1-3-B.pcr DATA\3-3.pcr DATA\CORN.pcr DATA\FS-NI.pcr DATA\ST-P.pcr DATA\VORICE.pcr DATA\fortmenu.pcr DATA\sun.pcr \
+DATA\1-3.pcr DATA\3-4.pcr DATA\CORNodl.pcr DATA\HOLE-A.pcr DATA\ST-POLD.pcr DATA\asteroid.pcr DATA\fortn.pcr DATA\sun_menu.pcr \
+DATA\1-4.pcr DATA\ALPHA.pcr DATA\CP-G.pcr DATA\LAST.pcr DATA\STARS.pcr DATA\blanktm.pcr DATA\fortunan.pcr DATA\tbosmenu.pcr \
+DATA\2-2.pcr DATA\AND.pcr DATA\DEMO.pcr DATA\LSB.pcr DATA\T-F-S.pcr DATA\city.pcr DATA\fxdes.pcr DATA\ti-3-us.pcr \
+DATA\2-3.pcr DATA\B-HOLE.pcr DATA\DOG.pcr DATA\M.pcr DATA\T-SP.pcr DATA\cityp.pcr DATA\fxdmenu.pcr \
+DATA\2-3B.pcr DATA\B.pcr DATA\E-TEST.pcr DATA\MAP2.pcr DATA\T-SS.pcr DATA\cornmenu.pcr DATA\gektun.pcr DATA\vhwymenu.pcr \
+DATA\2-3H.pcr DATA\BACK1.pcr DATA\E-TEST2.pcr DATA\RAIL.pcr DATA\T-ST.pcr DATA\cp.pcr DATA\macbeth.pcr DATA\vhwyp.pcr \
+DATA\2-4.pcr DATA\CONT-2-G.pcr DATA\E.pcr DATA\SC.pcr DATA\TI-3.pcr DATA\desert.pcr DATA\map.pcr DATA\vorclo.pcr \
+DATA\23menu.pcr DATA\CONT-2.pcr DATA\F-1.pcr DATA\SECKmenu.pcr DATA\TI.pcr DATA\desmenu.pcr DATA\menumac.pcr DATA\vordes.pcr \
+DATA\3-2.pcr DATA\CONT.pcr DATA\FOX.pcr DATA\SGSX.pcr DATA\VENOMA.pcr DATA\finals.pcr DATA\rb.pcr DATA\yama.pcr DATA\MAR.pcr
+
+#!! If you add/remove a font, make sure to add/remove the corresponding file.
+
+# Font files converted from BMP
+FONFILES= DATA\FONT\MOJI_0.FON DATA\FONT\MOJI_D.FON
+
+# Banks to assemble
+ALLFILES= bank0.sob bank1.sob bank2.sob \
+ bank4.sob bank5.sob bank6.sob bank7.sob \
+ bank8.sob bank9.sob bank10.sob \
+ bank11.sob shbanks.sob incbins.sob
+
+# Recipe to assemble a .ASM file and create a linkable .SOB file
+.asm.sob:
+	@$(ASM) -sHARDWARE=$(hardware) -snewmugshots=$(newface)  $(ASMFLAGS) $< -v$*.SOB
+
+# Recipes to crunch graphics
+.cgx.ccr:
+	@$(CRU) $< $*.CCR
+
+.scr.pcr:
+	@$(CRU) $< $*.PCR
+
+# Recipe to convert BMP to FON
+.bmp.fon:
+	@$(FONT) $<
+
+
+all: setup getdate make-allcols msprites crunch fonts SFES.SFC
+
+setup:
+	@del BANK\*.SOB > NUL
+	@del BANK\*.SOB > NUL
+
+# Program I threw together to make the date string in ARGSFX Y2K-compliant, outputs a temporary asm file that includes the current date+time
+getdate:
+	getblddt.exe
+
+# Recipe to crunch palettes
+# Initialize allcols.col
+init-allcols:
+	@cd DATA\GFX
+	@del col.tmp > NUL
+	@del col2.tmp > NUL
+	@del allcols.col > NUL
+	@copy NUL allcols.col > NUL
+
+# List of palette source files and how each should be handled
+# Both of these lists must match the order of SF/INC/KALCS.INC's list!!
+ALLCOLS_PALETTES= \
+ BG2-A.COL \
+ BG2-B.COL \
+ BG2-C.COL \
+ BG2-D.COL \
+ BG2-E.COL \
+ BG2-F.COL \
+ BG2-G.COL \
+ T-M.COL \
+ T-M-2.COL \
+ T-M-3.COL \
+ T-M-4.COL \
+ B-M.COL \
+ LIGHT.COL \
+ SPACE.COL \
+ STARS.COL \
+ CP.COL \
+ CP-US.COL \
+ HOLE.COL \
+ L.COL \
+ E-TEST0.COL \
+ E-TEST.COL \
+ OBJ-1.COL \
+ 2EP.COL \
+ FXDES.COL \
+ FXBLUE.COL \
+ FXGREEN.COL \
+ FORTN.COL \
+ FXPINK.COL \
+ CORN.COL \
+ NEWSPACE.COL \
+ VORTEX.COL \
+ CITY.COL \
+ CORN2.COL \
+ MACBETH.COL \
+ TBOSSVH.COL \
+ YAMA.COL \
+ MAR.COL
+
+
+# Palettes to include in ALLCOLS
+# allcols.pac: $(ALLCOLS_PALETTES) # use this label instead to only rebuild ALLCOLS when a palette file change is detected
+allcols.pac:
+	@echo Building ALLCOLS...
+#	       filename startline endline
+	@$(MC) bg2-a.col 0 7
+	@$(MC) bg2-b.col 0 7
+	@$(MC) bg2-c.col 0 7
+	@$(MC) bg2-d.col 0 7
+	@$(MC) bg2-e.col 0 9
+	@$(MC) bg2-f.col 0 7
+	@$(MC) bg2-g.col 0 7
+	@$(MC) t-m.col 0 7
+	@$(MC) t-m-2.col 0 7
+	@$(MC) t-m-3.col 0 7
+	@$(MC) t-m-4.col 0 7
+	@$(MC) b-m.col 0 7
+	@$(MC) light.col 0 7
+	@$(MC) space.col 0 7
+	@$(MC) stars.col 0 7
+	@$(MC) cp.col 0 7
+	@$(MC) cp-us.col 0 7
+	@$(MC) hole.col 0 7
+	@$(MC) l.col 0 7
+	@$(MC) e-test0.col 0 7
+	@$(MC) e-test.col 0 7
+	@$(MC) obj-1.col 8 13
+	@$(MC) 2ep.col 0 9
+	@$(MC) fxdes.col 0 7
+	@$(MC) fxblue.col 0 7
+	@$(MC) fxgreen.col 0 7
+	@$(MC) fortn.col 0 7
+	@$(MC) fxpink.col 0 7
+	@$(MC) corn.col 0 7
+	@$(MC) newspace.col 0 7
+	@$(MC) vortex.col 0 7
+	@$(MC) city.col 0 7
+	@$(MC) corn2.col 0 7
+	@$(MC) vortex.col 0 7
+	@$(MC) macbeth.col 0 7
+	@$(MC) tbossvh.col 0 7
+	@$(MC) yama.col 0 7
+	@$(MC) mar.col 0 7
+
+# Final step: Crunch all palettes into allcols.pac
+	@$(CRU) allcols.col allcols.pac
+	@echo Palette crunching complete.
+
+make-allcols: init-allcols allcols.pac
+	@cd ..\..
+
+#!! If you add/remove/modify a cgx/bin in these two lists, make sure the corresponding files are present here.
+
+# FXGFX files to be interleaved
+msprites: MSPRITE4.DAT MSPRITE5.DAT MSPRITE6.DAT SPRITES3.DAT SPRITES4.DAT SPRITESG.DAT
+
+# MSPRITES .BIN recipes
+MSPRITE4.DAT:
+	@$(MERGE) MSPRITES\custom1.cgx MSPRITES\custom2.cgx MSPRITES\$@ $(MOPTS)
+
+MSPRITE5.DAT:
+	@$(MERGE) MSPRITES\custom3.CGX MSPRITES\custom4.CGX MSPRITES\$@ $(MOPTS)
+
+MSPRITE6.DAT:
+	@$(MERGE) MSPRITES\custom5.CGX MSPRITES\custom6.CGX MSPRITES\$@ $(MOPTS)
+
+SPRITES3.DAT:
+	@$(MERGE) MSPRITES\tex_0.CGX MSPRITES\tex_1.CGX MSPRITES\$@ $(MOPTS)
+
+SPRITES4.DAT:
+	@$(MERGE) MSPRITES\tex_2.CGX MSPRITES\tex_3.CGX MSPRITES\$@ $(MOPTS)
+
+SPRITESG.DAT:
+	@$(MERGE) MSPRITES\tex_2.CGX MSPRITES\tex_3_a.CGX MSPRITES\$@ $(MOPTS)
+
+# Crunch all compressible GFX
+crunch: $(CGXFILES) $(SCRFILES)
+
+# Convert fonts
+fonts: $(FONFILES)
+
+clean:
+	@del SFES.SFC
+	@del *.sob
+	@del *.bak
+	@del blddat.asm
+	@del alvars.txt
+	@del msgs.txt
+	@del msgs2.txt
+	@del lastasm.tmp
+
+distclean:
+	@del SFES.SFC
+	@del *.sob
+	@del *.bak
+	@del DATA\*.CCR
+	@del DATA\*.PCR
+	@del DATA\GFX\ALLCOLS.PAC
+	@del blddat.asm
+	@del alvars.txt
+	@del msgs.txt
+	@del msgs2.txt
+	@del lastasm.tmp
+
+SFES.SFC: $(ALLFILES)
+	@$(LINK) $(LOPTS) -o$@ @flist
+	@echo Built ROM, hardware = $(hardware) newface = $(newface)
+	@$(EXTEND) $@ $(EXTOPS)
+	@$(CHECK) $(COPTS) $@
+	@$(MAPDEC) SFES.MAP SYMBOLS.TXT
+	@copy msutrks.csv ..\msutrks.csv
+	@del msutrks.csv
+	@copy symbols.txt ..\symbols.txt
+	@del symbols.txt
+	@copy equates.txt ..\equates.txt
+	@del equates.txt
+	@copy banks.csv ..\banks.csv
+	@del banks.csv
+	@del *.map
+
+## Banks to assemble
+
+## Banks 0, 32
+BANK0.SOB: \
+BANK0.ASM
+
+## Banks 1, 41
+BANK1.SOB: \
+BANK1.ASM
+
+## Banks 2, 3, 31, 36
+BANK2.SOB: \
+BANK2.ASM
+
+## Bank 4
+BANK4.SOB: \
+BANK4.ASM
+
+## Banks 5, 13, 39
+BANK5.SOB: \
+BANK5.ASM
+
+## Banks 6, 33
+BANK6.SOB: \
+BANK6.ASM
+
+## Bank 7
+BANK7.SOB: \
+BANK7.ASM
+
+## Bank 8
+BANK8.SOB: \
+BANK8.ASM \
+
+## Bank 9
+BANK9.SOB: \
+BANK9.ASM
+
+## Bank 10
+BANK10.SOB: \
+BANK10.ASM
+
+## Banks 11, 40
+BANK11.SOB: \
+BANK11.ASM
+
+## Banks 12, 14, 15, 16, 17, 37, 38
+SHBANKS.SOB: \
+SHBANKS.ASM
+
+## Banks 18, 19, 20, 21, 22, 23, 35 
+INCBINS.SOB: \
+INCBINS.ASM
+
+
+

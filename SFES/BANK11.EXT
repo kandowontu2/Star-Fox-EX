@@ -1,0 +1,9 @@
+	global	bgholeaccr
+	global	bgbccr
+	global	bgbpcr
+
+	global	bgblankpcr
+	global	sprites
+	global	bgcontccr
+	global	bgcontpcr
+;	global	bg24ccr

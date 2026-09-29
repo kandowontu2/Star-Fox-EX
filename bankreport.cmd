@@ -1,0 +1,1 @@
+python bankreport.py > BANKS.LOG

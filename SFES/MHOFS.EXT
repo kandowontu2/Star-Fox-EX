@@ -1,0 +1,17 @@
+
+;---------------------------------
+; mhofs.mc publics
+	global	MLACED
+	global	MOSC
+	global	MWATER
+	global	MZIGZAG
+	global	MNOISE
+	global	BHOLELIMIT
+	global	MBHOLE
+	global	MROTPLANET
+	global	MTUNNELGRAD
+	global	MWIBBLETUNNEL
+	global	MNOGRAD
+;---------------------------------
+
+

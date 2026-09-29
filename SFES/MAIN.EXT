@@ -1,0 +1,12 @@
+	global	setgamepal_l
+	global	credstuff,initialise2_l
+	global	setpal_l,xinidisp1,xinidisp2
+	global	initialise_l,gamestart,initgame_l
+	global	clearhvofs_l,initgame3d_l
+	global	setcharmapgame_l
+	global	setcharmapfrommap_l
+	global	gameoverpal,marioshowview_l,setinidisp1_l,setnoclash_l
+	global	MIST2COL,seapal
+
+
+

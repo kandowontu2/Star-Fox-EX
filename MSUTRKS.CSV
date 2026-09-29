@@ -1,0 +1,77 @@
+Track Number,Label,Desc,Version
+0,fitunl,Entering the Pipe,OST
+1,newtitle,EX - Title Screen,OST
+2,menu,Exploratorium,Demo
+3,controls,Controls Select,Church of Kondo
+4,training,Training Mode,OST
+5,map1,Star Fox Map,Church of Kondo
+6,map2,Star Fox EX Map,Arranged
+7,briefing,Map Briefing Zoom,OST
+8,briefingshort,Map Briefing Zoom Short,OST
+9,scramble,SCRAMBLE Sequence,OST
+10,level5_1,SG Proto Space,Arranged
+11,level5_2,Gekou,Arranged
+12,level5_3,Sector K,OST
+13,level5_4,Alpha,Arr. Demo
+14,level5_5,Kazaru,Arr. Demo
+15,level6_2,Pebble Beach,OST
+16,level6_3,Tarkus-H 2-112,Original .it Version
+17,level6_4,Cygard / Shmuppy,OST
+18,level6_5,Tolimas,OST
+19,level7_1,Interstellar,SPC
+20,level7_2,Papetoon,Arr. Demo
+21,level7_3,Eis,Arr. Demo
+22,level7_4,Kuraudo,OST
+23,boss5_1,Linktron,Arranged
+24,boss5_2,Black Rose,Arr. Demo
+25,boss5_3,Morph Ball,SPC
+26,boss5_4,King Dodora,OST
+27,boss5_5a,Star Wolf,OST
+28,boss5_5b,We are the Mario Bros.,OST
+29,boss6_2,Luigi Hydra,OST
+30,boss6_4,Pierrot,OST
+31,boss6_5,Gyaraga,OST
+32,boss7_2,Galaxip,OST
+33,boss7_3,Rexius,OST
+34,boss7_4,Air Raider,OST
+35,boss7_5,Brobot Attack!,OST
+36,bosscomet,Yoshisaur,Arr. Demo
+37,levelaustralia,Australia,OST
+38,levelcomet,Suisei,OST
+39,fanfare,Stage Clear,Arranged
+40,fanfarefinal,Last Boss Clear (Star Fox),OST
+41,fanfarefinalmap2,Final Fanfare,OST
+42,playerdown,Player Down,OST
+43,gameenddemo,Game End Demonstration,OST
+44,bossroll,Boss Roll (Star Fox),OST
+45,bossrollmap2,Hurricane (Star Fox EX Boss Roll),SPC
+46,credits,Credits (Sp0rch),SPC
+47,eschatos,Eschatos - POINT OF NO RETURN,Eschatos OST
+48,level1_1,Corneria,Church of Kondo
+49,level1_2,Asteroid/Venom Orbital,OST
+50,level1_3,Space Armada,OST
+51,level1_4,Meteor,OST
+52,level1_6,Venom Surface,OST
+53,level2_2,Sector X / Z,OST
+54,level2_3,Titania,OST
+55,level2_4,Sector Y,Church of Kondo
+56,level2_6,Venom Rt. 2,OST
+57,level3_3,Fortuna,Church of Kondo
+58,level3_5,Macbeth,Church of Kondo
+59,boss1_1,Boss Corneria,OST
+60,boss1_2,Boss Asteroid,OST
+61,boss1_3,Boss Space Armada,OST
+62,boss1_4,Boss Meteor,OST
+63,boss2_3,Boss Titania,OST
+64,boss3_3,Boss Fortuna,OST
+65,boss3_5,Boss Macbeth,OST
+66,boss1_5a,Phantron II,OST
+67,boss1_5b,Great Commander,SPC
+68,boss1_5c,Phantron I,OST
+69,bossandross,Boss Andross,OST
+70,bossootd,Slot Machine,Church of Kondo
+71,levelblackhole,Black Hole,OST Arranged
+72,levelootd,Out of this Dimension,OST
+73,enteringdangerousterritory,Entering Dangerous Territory,Church of Kondo
+74,creditsmap1,Staff Roll,OST
+75,secretactivated,Secret Activated,OST

@@ -1,0 +1,6 @@
+	global	initmode2sp
+	global	seqscroll_l
+	global	scope_read_l
+	global	mouse_read_l2
+	global	randtrans
+

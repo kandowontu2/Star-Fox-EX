@@ -1,0 +1,13 @@
+	global	bgsunmenupcr
+	global	bgsunccr,bgsunpcr,bg23menupcr
+	global	bgmenumacpcr,bgfxdmenupcr,bgdesmenupcr,bgcornmenupcr,bgfortmenupcr,bgseckmenupcr
+	global	fxfadegreen
+	global	fxfadeblue
+	global	fxfadedes
+	global	fxfadepink
+	global	fxfadecorn
+	global	fxfadecity
+	global	fxfadecorn2
+	IFNE	MSU1
+	include	MSU1\MSUDRV.EXT
+	ENDC
